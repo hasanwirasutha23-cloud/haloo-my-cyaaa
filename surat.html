@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Untuk My Cyaaa</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:linear-gradient(135deg,#ffd6e7,#ffeef5,#fff);
+
+}
+
+/* Background Love */
+
+.love{
+
+position:absolute;
+font-size:20px;
+animation:love 10s linear infinite;
+opacity:.5;
+
+}
+
+@keyframes love{
+
+0%{
+
+transform:translateY(100vh) scale(0.5);
+
+}
+
+100%{
+
+transform:translateY(-120vh) scale(1.2);
+
+}
+
+}
+
+/* Amplop */
+
+.envelope{
+
+width:260px;
+height:170px;
+background:#ff7ba8;
+position:relative;
+cursor:pointer;
+border-radius:10px;
+box-shadow:0 20px 40px rgba(0,0,0,.25);
+transition:.6s;
+
+}
+
+.envelope:hover{
+
+transform:scale(1.05);
+
+}
+
+.flap{
+
+position:absolute;
+width:0;
+height:0;
+border-left:130px solid transparent;
+border-right:130px solid transparent;
+border-top:90px solid #ff4f87;
+top:0;
+left:0;
+transform-origin:top;
+transition:1s;
+
+}
+
+.letter{
+
+position:absolute;
+width:230px;
+height:270px;
+background:white;
+left:15px;
+top:25px;
+border-radius:12px;
+padding:20px;
+overflow-y:auto;
+transition:1.5s;
+transform:translateY(130px);
+opacity:0;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+.show .flap{
+
+transform:rotateX(180deg);
+
+}
+
+.show .letter{
+
+transform:translateY(-170px);
+opacity:1;
+
+}
+
+h2{
+
+text-align:center;
+color:#ff4f87;
+margin-bottom:20px;
+
+}
+
+#typing{
+
+font-size:18px;
+line-height:32px;
+color:#444;
+white-space:pre-line;
+
+}
+
+.next{
+
+margin-top:20px;
+text-align:center;
+display:none;
+
+}
+
+.next button{
+
+padding:15px 35px;
+border:none;
+background:#ff4f87;
+color:white;
+border-radius:50px;
+cursor:pointer;
+font-size:17px;
+
+}
+
+.next button:hover{
+
+background:#ff7ba8;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="envelope" class="envelope">
+
+<div class="flap"></div>
+
+<div class="letter">
+
+<h2>💌 Untuk My Cyaaa</h2>
+
+<p id="typing"></p>
+
+<div class="next">
+
+<button onclick="lanjut()">
+Lanjut 📸
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+// Love Background
+
+for(let i=0;i<40;i++){
+
+let love=document.createElement("div");
+
+love.className="love";
+
+love.innerHTML="❤️";
+
+love.style.left=Math.random()*100+"%";
+
+love.style.animationDuration=(6+Math.random()*8)+"s";
+
+love.style.fontSize=(15+Math.random()*20)+"px";
+
+document.body.appendChild(love);
+
+}
+
+// Buka amplop
+
+const env=document.getElementById("envelope");
+
+env.onclick=function(){
+
+env.classList.add("show");
+
+ketik();
+
+}
+
+// Efek mengetik
+
+const text=`Halooo My Cyaaa...
+
+Lama tak bersua...
+
+Apa kabarmu sekarang?
+
+Kuharap kamu baik-baik saja di sana...
+
+Apakah kamu sehat sekarang?
+
+Sudah tidak banyak pikiran?
+
+Atau...
+
+apa ada yang bisa aku bantu?
+
+Aku hanya ingin memastikan...
+
+kalau kamu tetap baik-baik saja.
+
+😊`;
+
+let i=0;
+
+function ketik(){
+
+const area=document.getElementById("typing");
+
+const tombol=document.querySelector(".next");
+
+const speed=45;
+
+let ulang=setInterval(()=>{
+
+area.innerHTML+=text.charAt(i);
+
+i++;
+
+if(i>=text.length){
+
+clearInterval(ulang);
+
+tombol.style.display="block";
+
+}
+
+},speed);
+
+}
+
+function lanjut(){
+
+window.location="gallery.html";
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Satu Pertanyaan...</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+
+background:linear-gradient(180deg,#0f172a,#1e293b,#334155);
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+
+}
+
+.container{
+
+text-align:center;
+width:90%;
+max-width:700px;
+padding:40px;
+animation:fade 2s;
+
+}
+
+h1{
+
+font-size:48px;
+margin-bottom:20px;
+
+}
+
+p{
+
+font-size:22px;
+line-height:35px;
+margin-bottom:50px;
+color:#ddd;
+
+}
+
+button{
+
+padding:16px 38px;
+margin:15px;
+font-size:18px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+#yes{
+
+background:#ff4f87;
+color:white;
+
+}
+
+#yes:hover{
+
+transform:scale(1.08);
+
+}
+
+#no{
+
+background:white;
+color:#333;
+position:absolute;
+
+}
+
+#result{
+
+margin-top:45px;
+font-size:24px;
+color:#ffd166;
+display:none;
+animation:fade 1s;
+
+}
+
+#next{
+
+display:none;
+margin-top:35px;
+
+}
+
+#next button{
+
+background:#22c55e;
+color:white;
+
+}
+
+.star{
+
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:blink 2s infinite;
+
+}
+
+@keyframes blink{
+
+0%,100%{
+
+opacity:.2;
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌙</h1>
+
+<h1>Satu Pertanyaan...</h1>
+
+<p>
+
+Kalau boleh bertanya...
+
+Semoga sekarang...
+
+kamu benar-benar bahagia ya?
+
+</p>
+
+<button id="yes" onclick="iya()">
+😊 Iya
+</button>
+
+<button id="no">
+😅 Enggak
+</button>
+
+<div id="result"></div>
+
+<div id="next">
+
+<button onclick="lanjut()">
+
+Menuju Pesan Terakhir 💌
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+// bintang
+
+for(let i=0;i<120;i++){
+
+let star=document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"%";
+
+star.style.top=Math.random()*100+"%";
+
+star.style.animationDelay=Math.random()*2+"s";
+
+document.body.appendChild(star);
+
+}
+
+// tombol kabur
+
+const no=document.getElementById("no");
+
+no.addEventListener("mouseover",()=>{
+
+let x=Math.random()*(window.innerWidth-150);
+
+let y=Math.random()*(window.innerHeight-70);
+
+no.style.left=x+"px";
+
+no.style.top=y+"px";
+
+});
+
+// klik iya
+
+function iya(){
+
+document.getElementById("result").style.display="block";
+
+document.getElementById("result").innerHTML=
+
+"❤️ Syukurlah... semoga kebahagiaanmu selalu bertahan. ❤️";
+
+document.getElementById("next").style.display="block";
+
+}
+
+// lanjut
+
+function lanjut(){
+
+window.location="akhir.html";
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Cyaaa ❤️</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    font-family:Segoe UI,sans-serif;
+    background:linear-gradient(135deg,#ffb6d9,#ffdce8,#fff7f8);
+}
+
+.container{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    position:relative;
+    z-index:2;
+}
+
+h1{
+    font-size:65px;
+    color:white;
+    text-shadow:0 0 15px rgba(255,255,255,.8);
+    animation:fadeDown 2s;
+}
+
+p{
+    margin-top:20px;
+    font-size:22px;
+    color:white;
+    animation:fadeUp 2s;
+}
+
+button{
+
+margin-top:50px;
+padding:18px 45px;
+font-size:20px;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff4f87;
+cursor:pointer;
+transition:.4s;
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+background:#ff4f87;
+color:white;
+
+}
+
+@keyframes fadeDown{
+
+from{
+
+opacity:0;
+transform:translateY(-70px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+transform:translateY(70px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+/* Bintang */
+
+.star{
+
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:blink 2s infinite;
+
+}
+
+@keyframes blink{
+
+0%,100%{
+
+opacity:.2;
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+}
+
+/* Sakura */
+
+.sakura{
+
+position:absolute;
+top:-50px;
+font-size:25px;
+animation:fall linear infinite;
+
+}
+
+@keyframes fall{
+
+0%{
+
+transform:translateY(-100px) rotate(0deg);
+
+}
+
+100%{
+
+transform:translateY(120vh) rotate(360deg);
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Halooo My Cyaaa ❤️</h1>
+
+<p>
+Ada sesuatu yang ingin kusampaikan...
+</p>
+
+<button onclick="mulai()">
+Mulai Membaca 💌
+</button>
+
+</div>
+
+<script>
+
+// pindah halaman
+
+function mulai(){
+
+document.body.style.opacity="0";
+
+setTimeout(()=>{
+
+window.location="surat.html";
+
+},1000);
+
+}
+
+// efek fade
+
+document.body.style.transition="1s";
+document.body.style.opacity="1";
+
+// bintang
+
+for(let i=0;i<120;i++){
+
+let star=document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"%";
+
+star.style.top=Math.random()*100+"%";
+
+star.style.animationDelay=Math.random()*2+"s";
+
+document.body.appendChild(star);
+
+}
+
+// sakura
+
+for(let i=0;i<25;i++){
+
+let sakura=document.createElement("div");
+
+sakura.className="sakura";
+
+sakura.innerHTML="🌸";
+
+sakura.style.left=Math.random()*100+"%";
+
+sakura.style.animationDuration=(5+Math.random()*5)+"s";
+
+sakura.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(sakura);
+
+}
+
+</script>
+
+</body>
+</html>

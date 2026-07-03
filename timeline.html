@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Timeline Kenangan</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+background:linear-gradient(180deg,#ffe7f2,#fff5fb,#ffffff);
+
+overflow-x:hidden;
+
+}
+
+/* Judul */
+
+header{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+header h1{
+
+font-size:60px;
+color:#ff4f87;
+
+}
+
+header p{
+
+margin-top:20px;
+font-size:22px;
+color:#666;
+
+}
+
+/* Garis Timeline */
+
+.timeline{
+
+position:relative;
+
+max-width:1000px;
+
+margin:auto;
+
+padding:60px 0;
+
+}
+
+.timeline::after{
+
+content:'';
+
+position:absolute;
+
+width:6px;
+
+background:#ff7aa7;
+
+top:0;
+
+bottom:0;
+
+left:50%;
+
+margin-left:-3px;
+
+}
+
+/* Card */
+
+.card{
+
+padding:20px 30px;
+
+position:relative;
+
+width:50%;
+
+opacity:0;
+
+transform:translateY(100px);
+
+transition:1s;
+
+}
+
+.card.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+.left{
+
+left:0;
+
+}
+
+.right{
+
+left:50%;
+
+}
+
+.content{
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+.content h2{
+
+color:#ff4f87;
+
+margin-bottom:10px;
+
+}
+
+.content p{
+
+line-height:28px;
+
+color:#555;
+
+}
+
+/* Bulatan */
+
+.card::after{
+
+content:'';
+
+position:absolute;
+
+width:20px;
+
+height:20px;
+
+right:-10px;
+
+background:#ff4f87;
+
+border-radius:50%;
+
+top:35px;
+
+z-index:100;
+
+}
+
+.right::after{
+
+left:-10px;
+
+}
+
+/* Tombol */
+
+.end{
+
+height:250px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+button{
+
+padding:18px 45px;
+
+border:none;
+
+border-radius:40px;
+
+background:#ff4f87;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+button:hover{
+
+transform:scale(1.07);
+
+background:#ff7aa7;
+
+}
+
+/* HP */
+
+@media(max-width:768px){
+
+.timeline::after{
+
+left:25px;
+
+}
+
+.card{
+
+width:100%;
+
+padding-left:70px;
+
+padding-right:25px;
+
+}
+
+.right,.left{
+
+left:0;
+
+}
+
+.card::after{
+
+left:15px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🌸 Timeline Kenangan</h1>
+
+<p>Beberapa hal mungkin telah berlalu, tapi tetap menjadi bagian dari cerita.</p>
+
+</header>
+
+<div class="timeline">
+
+<div class="card left">
+
+<div class="content">
+
+<h2>🌱 Awal Bertemu</h2>
+
+<p>
+Aku masih ingat bagaimana semuanya dimulai.
+Mungkin sederhana, tapi sejak saat itu semuanya terasa berbeda.
+</p>
+
+</div>
+
+</div>
+
+<div class="card right">
+
+<div class="content">
+
+<h2>😊 Mulai Dekat</h2>
+
+<p>
+Obrolan yang awalnya biasa saja perlahan berubah menjadi sesuatu yang selalu kutunggu setiap harinya.
+</p>
+
+</div>
+
+</div>
+
+<div class="card left">
+
+<div class="content">
+
+<h2>📸 Kenangan</h2>
+
+<p>
+Tawa, cerita, foto-foto, dan semua momen kecil itu masih tersimpan dengan baik dalam ingatanku.
+</p>
+
+</div>
+
+</div>
+
+<div class="card right">
+
+<div class="content">
+
+<h2>🌙 Hari Ini</h2>
+
+<p>
+Entah bagaimana keadaan kita sekarang.
+Aku hanya berharap kamu benar-benar bahagia dan sehat selalu.
+</p>
+
+</div>
+
+</div>
+
+<div class="card left">
+
+<div class="content">
+
+<h2>❤️ Terima Kasih</h2>
+
+<p>
+Terima kasih pernah menjadi bagian dari hidupku.
+Semoga semua langkahmu selalu dipenuhi hal-hal baik.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="end">
+
+<button onclick="lanjut()">
+
+Menuju Pesan Terakhir 💌
+
+</button>
+
+</div>
+
+<script>
+
+const cards=document.querySelectorAll(".card");
+
+window.addEventListener("scroll",()=>{
+
+cards.forEach(card=>{
+
+const posisi=card.getBoundingClientRect().top;
+
+if(posisi<window.innerHeight-100){
+
+card.classList.add("show");
+
+}
+
+});
+
+});
+
+function lanjut(){
+
+window.location="question.html";
+
+}
+
+</script>
+
+</body>
+</html>
